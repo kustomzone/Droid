@@ -1,0 +1,153 @@
+=== SPRINTS ===
+
+2013-06-08...
+Sound! First pass:
+
+infrastructure
+v add soundfx to constructor
+v add panner node
+- Volume knob in the game controls gain node?
+
+2013-06-11 to 2013-06-12
+VorpOut:
+v Refactor Vorp graphics, sound, painters, canvas manipulation, etc into new VorpOut class.
+v Make that available to painters, instead of their renderers.
+v Ditto for sparklists. Delete getRenderer.
+
+Maybe refactor sprite factories into one big factory?
+
+2013-08-18...2013-08-22
+Singers
+Sustained sound-makers are objects w state, tied to sprites. Setters, start, end. Like a painter, lives beyond sprite,
+gets clocked, uses "kaput" disposal pattern.
+v basic infra
+  v Singer base class
+  v VorpOut API w kaput cleanup
+v prototype low-Hz oscillating gain w plexode
+v player thrust as first working example
+
+sound effects
+v player thrust & motion
+v player tractor beam
+  v activated
+  v scanning
+  v deactivated
+  v grabbed something
+  v holding(strength, force)
+  v kick(force)
+  v break
+v player assembly
+  - deactivated
+  - activated
+  - humming active
+- gripper (refactor player tractor beam code?)
+  - proximity - scanning
+  - grab
+  - proximity - holding(force)
+  - release
+- exit
+  - proximity noise
+  - level complete
+- button activate
+- door
+  - opening
+  - closing
+- scanner
+  - activated
+  - deactivated
+- zapper
+- collision noise rework?
+  - player
+  - wall
+  - block
+  - door
+  etc.
+v explosion
+- portal
+  v teleport in
+  v teleport out
+  - collision with unteleportables
+- start level?
+
+- zombie assembler
+-
+
+==================================================================================
+
+Sequencing, Sharing, Editing
+
+Level sequence is a list of level sources.
+A level source is squished level JSON, or a URL to level JSON.
+
+==================================================================================
+
+Rendering performance improvements
+
+- Prerender all immovable chunks like walls, and copy part of that each frame, instead of rerendering
+
+- use requestAnimationFrame instead of timeouts when possible
+
+==================================================================================
+
+Switch overhaul.
+* Grip-switches are awesome. Keep those.
+* There are no toggles, but if there were, they would need their own switch types.
+v replace all buttons and scanners with timer-idiom or one-time idiom.
+- Integrate timers into buttons.
+- Integrate timers into scanners, too.
+- Make one-time touch targets and one-time doors to match.
+- Remove infinite timers.
+- Remove redundant timers.
+
+==================================================================================
+
+More Content!
+
+Plasma Bomb
+
+Plasma Beamer
+Plasma Switch
+
+Drone
+
+Plasma Blaster
+
+HandHold
+Repulsor
+
+- Telltale
+v Not
+v And
+- Edge
+- Random
+
+===================================================================================
+
+Graphics
+Learn some WebGL
+
+Portal tweaks
+v They push away from teleport-blocking objects so they're unobstructed.
+x While they ARE obstructed they kind of show it
+v They do something cool when something teleports
+v They're clearly teleporters and not blocks or something. Hypersquare thing?
+
+Player tweaks
+- Put a little meh-face on it with eyes that move!
+- Better death animations, depending on the manner of doom.
+- Better assembly animation.
+  - How about a little tree grows
+  - and bears player as fruit
+  - before disintegrating?
+
+Exit tweaks
+- look good before touch
+- exit warp animation
+
+Background
+- Starfield? Texture? Buildings?
+
+Milestone: Production values go from "craptacular" to "weird retro vibe".
+
+===================================================================================
+

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html><head><title>Droid</title>
+<script src="js/utils/util.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/plexode3.css">
+<link rel="stylesheet" type="text/css" href="css/ved.css">
+<script src="droid.js"></script>
+<script>
+var vedApp;
+function main() {
+  var stor = new Stor(localStorage, 'ved');
+  stor.listenToStorage();
+  vedApp = new VedApp(document.getElementById('store'), stor);
+  vedApp.render();
+}
+</script>
+</head>
+
+<body onload="main()">
+<div class="top">
+<p>Droid Test</p>
+</div>
+<div id="store">...</div>
+
+</body>
+</html>
