@@ -8,7 +8,8 @@ Todo 	- zoom options
 		- autoplay options
 		- editor / builder functions
 		- 
-	 
+		-
+		
 Done - level save
 
-Demo: http://kustomzone.github.io/droid/
+Demo: http://kustomzone.github.io/Droid/
