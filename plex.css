@@ -1,0 +1,411 @@
+body {
+  font-family: verdana, arial, sans-serif;
+  font-size: small;
+}
+
+code {
+  font-family: courier-new, courier, monospace;
+}
+
+img.icon20x20 {
+  border:0;
+  vertical-align:middle;
+  width:20px;
+  height:20px;
+}
+
+
+/* top */
+div.top {
+  margin-bottom: 1em;
+  line-height: 1.6em;
+}
+
+/* logo */
+a.logo {
+  letter-spacing: -0.15em;
+  font-size: 200%;
+  font-family: courier new, courier, monospace;
+  text-decoration:none;
+  color:black;
+}
+
+/* navigation */
+.nav {
+  font-weight: bold;
+}
+
+span.nav {
+  border-width: 0 0 4px 0;
+  border-style: solid;
+  border-color: #8f0;
+}
+
+a.nav {
+  border-width: 0 0 4px 0;
+  border-style: solid;
+  border-color: white;
+  text-decoration: none;
+}
+
+a.nav:hover {
+  border-width: 0 0 4px 0;
+  border-style: solid;
+  border-color: #cfa;
+}
+
+/* links page */
+div.linkGroup {
+  float: left;
+  padding: 0 0.5em 1em;
+}
+
+div.linkGroup div {
+  padding: 2px 4px;
+  margin: 0;
+  background-color: #ccf;
+  border: 1px solid #008;
+  border-width: 1px 0 0;
+}
+
+div.linkGroup a {
+  display: block;
+  text-decoration: none;
+  padding: 0 4px;
+}
+
+div.linkGroup a:hover {
+  text-decoration: underline;
+}
+
+div.copyright {
+  position: absolute;
+  right: 2px;
+  top: 0;
+  color: silver;
+  font-size: 70%;
+  line-height: 1.6em;
+}
+
+body {
+  background:black;
+  color: #bbb;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+button {
+  color:black;
+  background:#ccc;
+}
+
+div.top {
+  margin-bottom: 0.6em;
+}
+
+a {
+  font-weight:bold;
+  text-decoration:none;
+  color:#96e;
+}
+
+a.logo {
+  color: rgb(170, 170, 170);
+  font-weight: normal;
+}
+
+span.nav {
+  color: rgb(170, 230, 170);
+}
+
+a.nav, span.nav, a.nav:hover {
+  border: 0;
+}
+
+div.copyright {
+  color:#777;
+}
+
+div.center {
+  max-width:40em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#levelCenter {
+  text-align:center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#canvas {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  position:absolute;
+  top:0;
+  background: #111;
+  z-index:-2;
+}
+
+.selectable {
+  user-select: text;
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+}
+
+.vedLeftLink, .vedLevelName, .vedModesDiv, #gedHelpToggle, #gedSysClipsToggle, .vedEditorNotice, .vedButtonBar  {
+  padding:0.3em 0.5em;
+  border-radius: 0.75em;
+  font-weight:bold;
+}
+
+.vedLeftLink, .vedModesDiv, #gedHelpToggle, #gedSysClipsToggle, .vedEditorNotice {
+  background-color:rgba(64, 64, 64, 0.7);
+}
+
+.vedLeftLink {
+  padding:0.4em 0.8em;
+  margin-right:0.7em;
+}
+
+.vedEditorNotice {
+  font-weight:normal;
+  padding:0.2em 0.8em;
+  color:yellow;
+}
+
+#levelHeader {
+  clear:both;
+  padding:0.5em 0;
+}
+
+h1 {
+  font-size:large;
+  margin:0.5em 0;
+}
+
+.vedModeLink {
+  padding:0 0.8em;
+}
+
+span.vedModeLink {
+  padding:0.2em 0.8em;
+  background:rgba(100, 150, 100, 0.5);
+  border-radius: 0.75em;
+  color:#ddd;
+}
+
+.vedButtonBar button {
+  border-radius: 0.75em;
+  font-weight:bold;
+  padding:0.1em 0.5em;
+}
+
+.vedLeftLink, .vedLevelName, .vedButtonBar {
+  float:left;
+}
+
+.vedButton {
+  font-size:small;
+  padding:0.1em 0.5em;
+  margin:0 0.5em;
+  border-radius:0.25em;
+  border:0;
+}
+
+.vedModesDiv {
+  float:right;
+}
+
+.vedMetaWrapper {
+  clear:both;
+  text-align:center;
+  padding:0.4em 1em 0;
+}
+.vedLevelTitle {
+  font-size:large;
+  font-weight:bold;
+}
+.vedLevelDesc {
+  font-size: small;
+  font-weight: normal;
+}
+.vedMetaEdit {
+  font-size:large;
+  border-radius:0.5em;
+  margin:0 0.5em;
+  position:absolute;
+  bottom:0;
+  border:0;
+}
+
+.vedDirectoryLink {
+  margin:0.25em 0;
+  display: block;
+}
+
+.vedError {
+  font-size:x-large;
+  color:#f44;
+}
+
+canvas.vedEditCanvas {
+  position:absolute;
+  top:0;
+  left:0;
+  margin:0;
+  border:0;
+  padding:0;
+  z-index:-10;
+  background:#000;
+}
+
+canvas.vedClipboard {
+  position:absolute;
+  bottom:0.5em;
+  left:0.5em;
+  margin:0;
+  border:0;
+  padding:0;
+  background:rgba(0, 0, 0, 0.7);
+}
+
+.vedShareLink {
+  display:block;
+  word-wrap: break-word;
+  margin:1em 0;
+}
+
+.vedSharePane {
+  position:absolute;
+  left:2em;
+  right:2em;
+  margin:1em;
+  padding:2em;
+  background-color:rgba(40, 40, 40, 0.93);
+  border-radius: 1em;
+  z-index:2;
+}
+
+#gedHelpToggle {
+  border:0;
+  position:absolute;
+  bottom: 0.5em;
+  right: 0.5em;
+  font-size:110%;
+}
+
+#gedHelpWrapper {
+  position:absolute;
+  bottom:3em;
+  right:3em;
+  max-width:40em;
+  padding:1em;
+  background-color:rgba(40, 40, 40, 0.93);
+  border-radius: 0.75em;
+  z-index:10;
+  overflow:auto;
+}
+
+#gedHelpWrapper h1 {
+  font-size:large;
+}
+
+#gedHelpWrapper h1, #gedHelpToggle, #gedSysClipsToggle {
+  color:#6b6;
+}
+
+#gedHelpToggle:hover, #gedSysClipsToggle:hover {
+  color:#6f6;
+}
+
+#gedHelpWrapper h1 {
+  font-size:large;
+}
+
+.getHelpMouseControl, .gedHelpKeyCombo {
+  color:#eef;
+}
+
+.gedHelpKeyCombo {
+  text-transform:uppercase;
+}
+
+.gedHelpTitle {}
+
+ul.gedHelpList {
+  list-style: none;
+  text-indent: 0;
+  margin-left: 0;
+  padding-left: 1em;
+}
+
+li.gedHelpListItem {
+  margin:0.6em 0;
+}
+
+#gedSysClipsToggle {
+  border:0;
+  position:absolute;
+  bottom: 8em;
+  left: 0.5em;
+  font-size:110%;
+}
+
+#gedSysClipsWrapper {
+  position:absolute;
+  bottom:11em;
+  left:2em;
+  right:2em;
+  top:6em;
+  padding:1em;
+  background-color:rgba(30, 30, 30, 0.93);
+  border-radius: 0.75em;
+  z-index:9;
+  overflow:auto;
+}
+
+.gedSysClip {
+  float:left;
+}
+
+.gedEditForm {
+  position:absolute;
+  max-width:40em;
+  top:5em;
+  right:3em;
+  padding:1.5em 2em 2em;
+  background-color:rgb(230, 230, 230);
+  border-radius: 2em;
+  z-index:10;
+  text-align:center;
+}
+
+.gedEditField {
+  display:block;
+  margin-bottom:0.5em;
+}
+
+.gedEditLabel {
+  display:block;
+  color:black;
+  text-align:left;
+  font-size:large;
+  font-weight:bold;
+}
+
+.gedEditInput {
+  font-size:large;
+  color:black;
+  width:100%;
+  border-radius: 0.5em;
+}
+
+.gedEditButton {
+  font-size:large;
+  border-radius: 0.5em;
+}
