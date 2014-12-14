@@ -3,18 +3,17 @@
 
 Init - Repo Cleanup (see http://plexode.com/vorp/ )
 
-Doing  - Make easier to restart previous level.
-       - Adding new levels. (unlinked lvl 7,9)
+Doing   - Make easier to restart previous level.
+        - Adding new levels. (unlinked lvl 7,9)
+		
+Done 	- editor repaired
 
-Todo 	- repair editor (python?)
-		- zoom options
+Todo	- zoom options
 		- spawn new tiles
 		- autoplay options
 		- editor / builder functions
 		- mid level save (see 2048)
 		- ...
-		
-		
 
 Demo: http://kustomzone.github.io/Droid/
 
