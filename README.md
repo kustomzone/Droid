@@ -6,7 +6,7 @@ Init - Repo Cleanup (see http://plexode.com/vorp/ )
 Doing  - Make easier to restart previous level.
        - Adding new levels. (unlinked lvl 7,9)
 
-Todo 	- repair editor
+Todo 	- repair editor (python?)
 		- zoom options
 		- spawn new tiles
 		- autoplay options

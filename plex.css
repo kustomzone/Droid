@@ -104,15 +104,6 @@ div.linkGroup a:hover {
   text-decoration: underline;
 }
 
-div.copyright {
-  position: absolute;
-  right: 2px;
-  top: 0;
-  color: silver;
-  font-size: 70%;
-  line-height: 1.6em;
-}
-
 span.nav {
   color: rgb(170, 230, 170);
 }

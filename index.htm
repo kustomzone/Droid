@@ -23,7 +23,7 @@
 var vedApp;
 function main() {
   var stor = new Stor(localStorage, 'ved'); stor.listenToStorage();
-  vedApp = new VedApp(document.getElementById('store'), stor);
+  vedApp = new VedApp(document.getElementById('vedroot'), stor);
   vedApp.render();
 }
 </script>
@@ -33,7 +33,6 @@ function main() {
 <div class="top">
 <p>Droid</p>
 </div>
-<div id="store">@</div>
-<div id="vedroot">ved stuff goes here</div>
+<div id="vedroot">ved..</div>
 </body>
 </html>
