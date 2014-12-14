@@ -6956,10 +6956,9 @@ VedApp.prototype.renderDirectory = function(appDiv, mode) {
   centerDiv.className = 'center';
   centerDiv.innerHTML +=
       '<div class=center>' +
-      '<h1>Droid</h1>' +
-      'Droid is a free 2D physics-based action/puzzle game that runs in modern web browsers.' +
+      '<h2>Droid</h2>' +
+      'Droid is a clone of a 2D physics-based editor that runs in modern browsers.' +
       '<p>The built-in editor stores your work on your computer using localstorage. ' +
-      'You can share what you make, by sending a URL.' +
       '<h1>Official Levels</h1>' +
       '</div>';
 
@@ -7320,6 +7319,8 @@ VedApp.prototype.renderEditMode = function(appDiv, levelAddress) {
   grafUi.startLoop();
   var metaEditElem = document.querySelector('.vedMetaEdit');
   metaEditElem.style.display = editable ? '' : 'none';
+  
+  // repair editor button..
   if (editable) {
     var metaCluster = this.getMetaClusterForGraf(grafEd.model);
     var self = this;
@@ -7363,6 +7364,9 @@ VedApp.prototype.renderSysClipWrapper = function(appDiv) {
   toggle.innerHTML = GedMsgs.TOGGLE_CLIP_MENU;
   return wrapper;
 };
+
+// editor canvas..
+// eg. <canvas class="vedEditCanvas" width="1393" height="777"></canvas>
 
 VedApp.prototype.createGrafUi = function(appDiv, grafEd, clipboard, grafUiKeyCombos) {
   var canvas = plex.dom.ce('canvas', appDiv);

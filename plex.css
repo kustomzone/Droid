@@ -1,6 +1,32 @@
 body {
   font-family: verdana, arial, sans-serif;
   font-size: small;
+  background:black;
+  color: #bbb;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+button {
+  color:black;
+  background:#ccc;
+}
+
+div.top {
+  margin-bottom: 0.6em;
+}
+
+a {
+  font-weight:bold;
+  text-decoration:none;
+  color:#96e;
+}
+
+a.logo {
+  color: rgb(170, 170, 170);
+  font-weight: normal;
 }
 
 code {
@@ -87,45 +113,12 @@ div.copyright {
   line-height: 1.6em;
 }
 
-body {
-  background:black;
-  color: #bbb;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
-
-button {
-  color:black;
-  background:#ccc;
-}
-
-div.top {
-  margin-bottom: 0.6em;
-}
-
-a {
-  font-weight:bold;
-  text-decoration:none;
-  color:#96e;
-}
-
-a.logo {
-  color: rgb(170, 170, 170);
-  font-weight: normal;
-}
-
 span.nav {
   color: rgb(170, 230, 170);
 }
 
 a.nav, span.nav, a.nav:hover {
   border: 0;
-}
-
-div.copyright {
-  color:#777;
 }
 
 div.center {
