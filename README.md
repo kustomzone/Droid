@@ -7,10 +7,11 @@ Todo 	- zoom options
 		- spawn new tiles
 		- autoplay options
 		- editor / builder functions
-		- 
-		-
+		- mid level save (see 2048)
+		- ...
 		
-Done - level save
+Done - restart level
+
 
 Demo: http://kustomzone.github.io/Droid/
 

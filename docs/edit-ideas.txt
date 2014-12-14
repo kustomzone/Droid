@@ -1,0 +1,221 @@
+I really need a level editor.  Workflows:
+
+Level Doodling:
+Draw a basic level.
+Play it.  See how the elements combine.  Feel what's fun.
+
+Edit/play cycle should be blurred into one seamless experience.
+Edit walls and things in real-time as the game plays, so areas can be fine-tuned.
+Immovable/timeless objects are easiest.  Edits are immedate and permanent.
+
+Movable objects and editable bits have initial state and downstream state.  Each is
+a layer in the experience but initial state is most critical since that's what gets
+saved.
+
+Done-ish levels need to be editable for tweaking and stuff.
+
+loader
+saver
+reversible operations clustered into intentions.  Idea of an "undo cursor",
+but even undo is really
+- create reverse of op at undo cursor
+- apply reverse-op 
+- more undo cursor back one more
+
+Editor session should be its own data, including levels open, references, and clips.
+Use mouse and modifier keys to include/exclude stuff from current selection.
+Ctrl-x|c cut/copy to new clip and push that onto the clip list.
+Click a clip icon to move it to the head of the list.
+
+Bare minimum for usfulness is a lot of stuff.  Minimize.
+- Rejigger level logic to be expressable as data?  Or allow JS code?
+- Zoomable UI
+- minimap?
+- hilight with mouse
+- selection add/remove/clear
+- clipboard, 
+- control points for walls?
+- joins
+
+======================================================================================
+2011.06.05 New Ideas
+
+Ved file + translator function code generates a level.
+Ved file is optimized for editability by Ved a program, but is ignorant of the UI.
+
+A Ved file is a list of parts and list of links.
+Parts and their geometric properties:
+- wall - has start and end points, constrained to same x or same y.
+- field - has 4 axis-aligned edges definable by 2 points.
+- portal - two points.  Delete or create together, but move independently.
+- block, exit timer, toggle, and-gate - single points.
+- button, grip, assembler - single points.  Sprite will cleave to nearest wall and face out.
+- door, zapper, sensor - single points.  Sprite will cleave to nearest wall and extend to facing wall.
+- heavy tractor, zom-b-gone, and plasma fountains all have one or more directions and/or targets,
+  definable by points.
+Some parts refer to other ones by logic links.  All sensors, logic, and effectors are like this.
+Example logic flow: beamsensor --> (timer reset, timer running) --> open door
+
+Some parts may refer to other points...
+I want to have a robot that wanders between waypoints,
+picks up stuff, and drops it at dropoff points.
+The waypoints for this bot are one set of points.
+The dropoffs are another set.
+Multiple robots could use the same set of points,
+so maybe the points shouldn't belong to the robot...
+But lots of parts have extra points, angles, jacks, etc,
+so giving a robot some points seems uniform-ish,
+and simpler for simple cases.
+
+
+The main mouse interaction things are control points which can be..
+- hovered over
+- deleted (hit "delete" when hovering)
+  - delete a prefab
+  - delete a logic link
+  - delete a waypoint or some such
+- mouse-downed, switching to grip mode sometimes
+- dragged when in grip mode
+- mouse-down can also lead to creation of a new point, in grip mode
+- mouse-down can ALSO lead to logic-link-grip
+- logic-link-grip drag to another part's logic thing of opposite direction creates a logic link.
+
+Part
+required:
+- ID
+- type
+based on type...
+one or more control points with various constraints and natures
+- A wall has 2 endpoints that are forced to be on same axis,
+  and maybe a middle point just for repositioning.
+  A wall can agree to rotate itself if an endpoint is dragged past 45 degrees off.
+- A portal has two peer points, independently positioned but deleting one deletes the other.
+- Wall-huggers have one point for positioning.
+- Logical parts have jackgroups with deletable jacks and a creation/destination jack
+- Some parts have aim points which become directions.
+  No need to constrain these to a circle really.
+- Some have targets, like heavy lifters.
+- Some robots have multiple point groups like waypoints and dropoff points.
+- Timers can even use control points to dictate timer length.  Wee, abuse the system! 
+
+Parts and links have painters.  They do NOT show the resulting sprites. Just an AR overlay of graf data.
+The under-layer *is* the resulting sprites and their painters - a full Vorp.
+
+Cluster parts are not sprites!
+A beam sensor is two sprites, but a one-part cluster.
+A door is three sprites (two visible parts and an invisible controller) but it's also a one-part cluster.
+The transformer needs code to convert a cluster to a set of sprites.
+
+It's the transformer's job to interpret the graf as vorp data, so it has deep knowledge of both worlds.
+The Transformer will track the jack mapping from graf jacks to sprite inputs/outputs, as it creates sprites.
+It'll use that to create vorp links from graf data.
+
+Clips:
+There are system clips and user clips.
+Copying from a level adds a new user clip.
+Clicking a clip selects it, but does not move it to the top of the user-clips list.
+Clip selection is persisted and synced cross-tab. Selection is (sys|usr)id.
+User clips are also persisted and synced cross-tab, under /clips/(clipId aka timestamp)
+
+2012.07.05
+How does a playable level get built?
+First, populate a GrafModel
+* Create an empty GrafModel.
+* Create a SysClipList, which has Graf elements for all the level pieces - walls, exits doors, etc.
+* Copy clips from the SysClipList to the graf.
+* Manipulate the parts in the model, to position the graf control points
+* Add the exit URL to each exit.
+* Create links from jack to jack to wire buttons to doors and stuff.
+Now transform the GrafModel into a Vorp!
+* Create an empty Vorp.
+* Create a Transformer with the vorp, plus its gameClock and sledgeInvalidator.
+* transformer.transformModel(grafModel)
+* Now your vorp is ready to play!
+...
+In the distant future (it was November 2012!), the UI for building levels will use the processes above,
+but instead of playing the vorp, the UI will display it frozen in time, overlaid with the grafmodel.
+The user will manipulate the grafmodel using a generic graf editor UI that doesn't
+have to know about the Transformer or Vorp.
+
+2012.09.09
+Done: graf, ops, transformer. All Plexode levels using new system. Yaaaay!
+Later: A level editor anyone can use, and easy level sharing (with my hugeurl technology).
+Now: A level editor I can use at home.
+
+Stor on LocalStorage, to put multiple levels of ops into.
+LevelList
+LevelListModel is backed by the Stor.
+URL scheme:
+vorp/edit/index.html#mode=edit&level=<uri-component-escaped level name>
+App starts, checks hash vs. local store. If the local store doesn't have the thing, say so and link to the main page.
+Pages:
+- Level Directory
+  - vorp/edit/
+  - show levels and link to them
+  - add level
+- Edit Level
+  - vorp/edit/#mode=edit&level=<name>
+- Test Level (maybe with debug options?)
+  - vorp/edit/#mode=test&level=<name>
+- Missing Level (fallback behavior for Edit or Test)
+
+
+Tips!
+Try to make everything obvious just by playing w mouse/touch. Don't rely on users knowing keys to press.
+Use the selections and model to offer more touchable buttons.
+- Offer link button if sel0 and sel1 each have one opposite jack with no existing link
+- On sel0, show handles for pan, del, and copy.
+
+
+=============================================
+2012.11.13 Clips
+
+-------------------
+Current Clip Widget
+
+Render the model + vorp the same way the grafUi does, but center and zoom automatically.
+(GrafUi needs the same ability, for its initial view. Today the level is out of frame.)
+CurrClip's canvas is not interactive. No hovers, panning, etc. Static canvas, rendered once.
+
+Interface:
+- setModel, from a select+copy, or a sys-clip click
+  - saves to a stor. Not opstor - just a monolithic JSON blob.
+  - draw. No loop so don't bother with 'dirty' bit.
+- getModel, for paste.
+- draw
+  - causes transformation via plugin, new framing, and one render with plugin help.
+- resize.  Instant redraw.
+- Listens to stor changes, for cross-tab cut-n-paste.
+
+Deps:
+- stor (optional?)
+- model (empty, syncs from stor like GrafEd?)
+- renderer
+- plugin
+Like GrafEd + GrafUi, but simpler.
+
+------------
+System Clip
+
+Rendered exactly like Current Clip.
+Deps:
+- model, empty or initialized
+- renderer
+- plugin
+
+The list of system clips is its own widget, owned by VedApp, that manages a list of system clips.
+
+----------
+User Clips
+No different from system clips except that the list of them changes based on copy ops and clipstor events.
+
+
+So...
+ClipRenderer?
+Resizable, settable widget that only renders a clip Used by Current, User, and System clips.
+Hm. It needs to be consistent with GrafUi's rendering.
+GrafRenderer!
+Take GrafEd's graphics constants, and GrafUi's non-user-interactive rendering chunks,
+and pull them up into a constants class, and a basic rendering class.
+Today's GrafUi will own a basic graf renderer and pile other stuff onto it,
+like selection and hilite rendering, tips, etc.
