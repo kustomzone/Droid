@@ -1,5 +1,5 @@
 
-// ..droid levels
+// levels
 
 var droidLevels = droidLevels || {};
 droidLevels['lesson-01'] =
@@ -940,6 +940,17 @@ droidLevels['level-06'] =
 [20,999,"Level 6: Wield the Teleporter","Go on the Offensive"]];
 
 var droidLevels = droidLevels || {};
+droidLevels['level-07'] =
+[[10,1,-450,0],
+[18,3,580,0,"#level-09"],
+[1,5,80,170,80,-160],
+[1,8,840,-440,840,450],
+[1,11,-640,-440,-640,450],
+[1,14,-640,-440,840,-440],
+[1,17,-640,450,840,450],
+[20,999,"Level 7: Echo Chamber","Move with the arrow keys. Go touch the BLUE thing!"]];
+
+var droidLevels = droidLevels || {};
 droidLevels['level-08'] =
 [[13,1,1464,448],
 [8,3,960,1048],
@@ -1087,3 +1098,13 @@ droidLevels['level-08'] =
 [9,348,313,229],
 [9,349,313,232],
 [20,999,"Level 8: Battle Grid", "Close combat. Clear the grid."]];
+
+var droidLevels = droidLevels || {};
+droidLevels['level-09'] =
+[[10,1,-450,0],
+[1,5,80,170,80,-160],
+[1,8,840,-440,840,450],
+[1,11,-640,-440,-640,450],
+[1,14,-640,-440,840,-440],
+[1,17,-640,450,840,450],
+[20,999,"Level 9: Boxed In","Move with the mouse. (back button pending)"]];
