@@ -26,17 +26,13 @@ function main() {
   vedApp.render();
 }
 </script>
-<link rel="stylesheet" href="data:text/css,%3Avisited%20%7Bcolor%3A%23%20%21important%3B%7D%3Avisited%3Ahover%7Bcolor%3A%23%20%21important%3B%7D">
 </head>
 
 <body onload="main()">
 <div class="top">
 <p>Droid</p>
 </div>
-
-<!-- div id="vedroot">ved..</div -->
-
-<div id="vedroot"><div><div class="vedModesDiv"><a href="#level=lesson-01" class="vedModeLink">play</a><span class="vedModeLink">edit</span></div><a href="#mode=edit" class="vedLeftLink">«</a><span class="vedLevelName">lesson-01</span><div class="vedButtonBar"><span class="vedEditorNotice">Official level. Copy before editing.</span><button class=" vedButton">copy level</button></div><div class="vedMetaWrapper"><span class="vedLevelTitle">Lesson 1: Moving Around</span><span style="position: relative;"><button class="vedMetaEdit">✎</button></span><div class="vedLevelDesc">Move with the arrow keys. Go touch the green thing!</div></div><div id="gedHelpWrapper" style="display: none;"><h1 class="gedHelpTitle">mouse</h1><ul class="gedHelpList"><li class="gedHelpListItem"><span class="getHelpMouseControl">Pan</span> by dragging the canvas, while holding the mouse button down.</li><li class="gedHelpListItem"><span class="getHelpMouseControl">Zoom</span> by scrolling with the mousewheel, or using the two-finger trackpad up/down gesture, or whatevs.</li></ul><h1 class="gedHelpTitle">keyboard</h1><ul class="gedHelpList"><li class="gedHelpListItem"><span class="gedHelpKeyCombo">s</span>: Select. Hold the key down and move the pointer to create a selection box, and release the key to select all the highlighted parts and jacks. Or just tap the key to select whatever you are pointing at. The editor remembers your previous selections, which is strange but powerful.<br>Nerds: It's selections.push()</li><li class="gedHelpListItem"><span class="gedHelpKeyCombo">shift + s</span>: Unselect. The current selection is forgotten, and the previous selection becomes the current one. <br>Nerds: That's selections.pop()</li><li class="gedHelpListItem"><span class="gedHelpKeyCombo">a</span>: Add the current selection to the previous selection. <br>My people: Think push(add(pop(), pop())</li><li class="gedHelpListItem"><span class="gedHelpKeyCombo">shift + a</span>: Subtract the current selection from the previous selection. <br>You know, push(subtract(pop(), pop()))</li><li class="gedHelpListItem"><span class="gedHelpKeyCombo">l</span>: Link any input and output jacks in the current selection. Input jacks are on top of parts. Output jacks are on the bottom.</li><li class="gedHelpListItem"><span class="gedHelpKeyCombo">delete</span> or <span class="gedHelpKeyCombo">backspace</span>: Delete parts in the current selection, or delete links to selected jacks.</li><li class="gedHelpListItem"><span class="gedHelpKeyCombo">c</span>: Copy the current selection to clipboard.</li><li class="gedHelpListItem"><span class="gedHelpKeyCombo">v</span>: Paste. Hold the key down and move the pointer to position the clip, and release the key to drop the clip in place.</li><li class="gedHelpListItem"><span class="gedHelpKeyCombo">z</span>: Undo</li><li class="gedHelpListItem"><span class="gedHelpKeyCombo">shift + z</span>: Redo</li><li class="gedHelpListItem"><span class="gedHelpKeyCombo">m</span>: Toggle the Clip Menu</li></ul></div><button id="gedHelpToggle">help</button><canvas class="vedClipboard" height="100" width="100"></canvas><canvas class="vedEditCanvas" width="1393" height="777"></canvas><div id="gedSysClipsWrapper" style="display: none;"><canvas class="gedSysClip" width="200" height="150"></canvas></div><button id="gedSysClipsToggle">clip menu</button></div></div>
+<div id="vedroot"><div>
 
 </body>
 </html>
